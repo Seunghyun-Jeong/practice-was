@@ -45,5 +45,6 @@ test('DELETE /article/:id', async (t) => {
     url: '/article/61e8fffec047a8250396c6e2'
   })
 
+
   t.same(res.statusCode, 204)
 })

@@ -8,17 +8,18 @@ module.exports = async function (app, opts) {
     const result = await readAll(this.mongo)
 
     reply
-      .code(404)
-      .header()
-      .send()
+      .code(200)
+      .header("content-type", "application/json")
+      .send(result)
   })
 
   app.get('/:id', async function (request, reply) {
-    const result = await readOne(this.mongo, FILL_ME_IN)
+    const result = await readOne(this.mongo, request.params)
+
 
     reply
-      .code(404)
-      .header()
-      .send()
+      .code(200)
+      .header("content-type", "application/json")
+      .send(result)
   })
 }
